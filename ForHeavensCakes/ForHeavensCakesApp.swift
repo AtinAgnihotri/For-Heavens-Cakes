@@ -11,7 +11,7 @@ import SwiftUI
 struct ForHeavensCakesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OrderView()
         }
     }
 }

@@ -8,18 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		852E9DBB267F860E00F0E945 /* ForHeavensCakesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852E9DBA267F860E00F0E945 /* ForHeavensCakesApp.swift */; };
-		852E9DBD267F860E00F0E945 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852E9DBC267F860E00F0E945 /* ContentView.swift */; };
+		852E9DBD267F860E00F0E945 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852E9DBC267F860E00F0E945 /* OrderView.swift */; };
 		852E9DBF267F861100F0E945 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 852E9DBE267F861100F0E945 /* Assets.xcassets */; };
 		852E9DC2267F861100F0E945 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 852E9DC1267F861100F0E945 /* Preview Assets.xcassets */; };
+		852E9DCA267FB41A00F0E945 /* OrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852E9DC9267FB41A00F0E945 /* OrderManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		852E9DB7267F860E00F0E945 /* ForHeavensCakes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForHeavensCakes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		852E9DBA267F860E00F0E945 /* ForHeavensCakesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForHeavensCakesApp.swift; sourceTree = "<group>"; };
-		852E9DBC267F860E00F0E945 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		852E9DBC267F860E00F0E945 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		852E9DBE267F861100F0E945 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		852E9DC1267F861100F0E945 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		852E9DC3267F861100F0E945 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		852E9DC9267FB41A00F0E945 /* OrderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,10 +55,11 @@
 			isa = PBXGroup;
 			children = (
 				852E9DBA267F860E00F0E945 /* ForHeavensCakesApp.swift */,
-				852E9DBC267F860E00F0E945 /* ContentView.swift */,
+				852E9DBC267F860E00F0E945 /* OrderView.swift */,
 				852E9DBE267F861100F0E945 /* Assets.xcassets */,
 				852E9DC3267F861100F0E945 /* Info.plist */,
 				852E9DC0267F861100F0E945 /* Preview Content */,
+				852E9DC9267FB41A00F0E945 /* OrderManager.swift */,
 			);
 			path = ForHeavensCakes;
 			sourceTree = "<group>";
@@ -138,7 +141,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				852E9DBD267F860E00F0E945 /* ContentView.swift in Sources */,
+				852E9DCA267FB41A00F0E945 /* OrderManager.swift in Sources */,
+				852E9DBD267F860E00F0E945 /* OrderView.swift in Sources */,
 				852E9DBB267F860E00F0E945 /* ForHeavensCakesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
