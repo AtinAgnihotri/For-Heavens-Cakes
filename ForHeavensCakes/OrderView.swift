@@ -45,6 +45,16 @@ struct OrderView: View {
                         }
                     }
                 }
+                
+                NavigationLink(
+                    destination: AddressView(),
+                    label: {
+                        HStack {
+                            Spacer()
+                            Text("Proceed to Delivery Details").foregroundColor(Color.accentColor)
+                            Spacer()
+                        }
+                    })
             }.navigationBarTitle("For Heaven's Cakes")
         }
     }
