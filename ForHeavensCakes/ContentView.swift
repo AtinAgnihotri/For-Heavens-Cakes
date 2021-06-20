@@ -38,13 +38,30 @@ struct Result: Codable {
 
 struct ContentView: View {
     @State var results = [Result]()
+    @State private var userName = ""
+    @State private var emailId = ""
+    var disabledForm : Bool {
+        userName.count < 5 || emailId.count < 5
+    }
     var body: some View {
-        List(results, id:\.trackId) { result in
-            VStack (alignment: .leading) {
-                Text(result.trackName).font(.headline)
-                Text(result.collectionName)
-            }.padding()
-        }.onAppear(perform: loadDataFromItunes)
+        Form {
+            Section {
+                TextField("Username", text: $userName)
+                TextField("Email", text: $emailId)
+            }
+            
+            Section {
+                Button("Sign up") {
+                    print("Creating Account . . . ")
+                }.disabled(disabledForm)
+            }
+        }
+//        List(results, id:\.trackId) { result in
+//            VStack (alignment: .leading) {
+//                Text(result.trackName).font(.headline)
+//                Text(result.collectionName)
+//            }.padding()
+//        }.onAppear(perform: loadDataFromItunes)
     }
     
     func loadDataFromItunes() {
