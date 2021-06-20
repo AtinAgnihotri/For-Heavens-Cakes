@@ -26,10 +26,50 @@ class User: ObservableObject, Codable {
     }
 }
 
+struct Response: Codable {
+    var results: [Result]
+}
+
+struct Result: Codable {
+    var trackId: Int
+    var trackName: String
+    var collectionName: String
+}
+
 struct ContentView: View {
+    @State var results = [Result]()
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        List(results, id:\.trackId) { result in
+            VStack (alignment: .leading) {
+                Text(result.trackName).font(.headline)
+                Text(result.collectionName)
+            }.padding()
+        }.onAppear(perform: loadDataFromItunes)
+    }
+    
+    func loadDataFromItunes() {
+        guard let url = URL(string: "https://itunes.apple.com/search?term=kendrik+lamar&entity=song") else {
+            print("Could Not load data from iTunes. Thanks Tim Apple!")
+            return
+        }
+        
+        let request = URLRequest(url: url)
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                if let decodedData = try? JSONDecoder().decode(Response.self, from: data) {
+                    DispatchQueue.main.async {
+                        self.results = decodedData.results
+                    }
+                    
+                    return
+                }
+            }
+            
+            print("Fetch failed :: \(error?.localizedDescription ?? "Unknown Error")")
+        }.resume()
+        
+        
     }
 }
 
