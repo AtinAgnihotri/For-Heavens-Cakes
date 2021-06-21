@@ -41,6 +41,7 @@ struct AddressView: View {
                     SubmitButtonView("Checkout")
                 }
             ).disabled(submitDisabled)
+            .colorMultiply(submitDisabled ? .secondary : Color(red: 1, green: 1, blue: 1))
             
         }.navigationBarTitle("Confirm Address Details", displayMode: .automatic)
     }
@@ -48,6 +49,6 @@ struct AddressView: View {
 
 struct AddressView_Previews: PreviewProvider {
     static var previews: some View {
-        AddressView()
+        AddressView().preferredColorScheme(.dark)
     }
 }

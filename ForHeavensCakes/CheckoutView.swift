@@ -8,8 +8,41 @@
 import SwiftUI
 
 struct CheckoutView: View {
+    @ObservedObject var orderManager = OrderManager.getInstance()
+    
+    var billText: LocalizedStringKey {
+        "Your total bill is $\(orderManager.cost, specifier: "%.2f")"
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GeometryReader { geo in
+            ScrollView(.vertical) {
+                VStack (alignment: .center) {
+                    VStack {
+                        Image("cupcakes")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(maxWidth: geo.size.width)
+                        Text(billText)
+                            .padding()
+                            .font(.title)
+                        
+                    }
+                    Spacer(minLength: 50)
+                    // todo Make the Button stick to bottom like the rest of the CTAs
+                    Button (action: {
+                        
+                    },
+                    label: {
+                        SubmitButtonView("Checkout")
+                    })
+                }.frame(maxWidth: .infinity, maxHeight: .infinity)
+            }.frame(maxWidth: .infinity, maxHeight: .infinity)
+        }.navigationBarTitle("Checkout", displayMode: .inline)
+    }
+    
+    func checkoutOrder() {
+        
     }
 }
 
