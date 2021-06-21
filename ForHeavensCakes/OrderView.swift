@@ -53,14 +53,7 @@ struct OrderView: View {
                 NavigationLink(
                     destination: AddressView(),
                     label: {
-                        HStack {
-                            Spacer()
-                            Text("Address Details")
-                                .foregroundColor(Color.accentColor)
-                                .font(.title)
-                                .bold()
-                            Spacer()
-                        }
+                        SubmitButtonView("Address Details")
                     })
                 
                 Spacer()

@@ -14,6 +14,7 @@
 		852E9DCA267FB41A00F0E945 /* OrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852E9DC9267FB41A00F0E945 /* OrderManager.swift */; };
 		852E9DCC267FBDB000F0E945 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852E9DCB267FBDB000F0E945 /* AddressView.swift */; };
 		85B4A4872680653600120038 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B4A4862680653600120038 /* UIApplicationExtensions.swift */; };
+		85B4A48B26808BEB00120038 /* SubmitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B4A48A26808BEB00120038 /* SubmitButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		852E9DC9267FB41A00F0E945 /* OrderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderManager.swift; sourceTree = "<group>"; };
 		852E9DCB267FBDB000F0E945 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		85B4A4862680653600120038 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
+		85B4A48A26808BEB00120038 /* SubmitButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				852E9DC0267F861100F0E945 /* Preview Content */,
 				852E9DC9267FB41A00F0E945 /* OrderManager.swift */,
 				852E9DCB267FBDB000F0E945 /* AddressView.swift */,
+				85B4A48A26808BEB00120038 /* SubmitButtonView.swift */,
 			);
 			path = ForHeavensCakes;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85B4A48B26808BEB00120038 /* SubmitButtonView.swift in Sources */,
 				852E9DCA267FB41A00F0E945 /* OrderManager.swift in Sources */,
 				85B4A4872680653600120038 /* UIApplicationExtensions.swift in Sources */,
 				852E9DCC267FBDB000F0E945 /* AddressView.swift in Sources */,

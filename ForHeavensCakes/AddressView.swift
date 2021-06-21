@@ -38,13 +38,7 @@ struct AddressView: View {
             NavigationLink (
                 destination: Text("Checkout"), // stub
                 label: {
-                    HStack (alignment: .center) {
-                        Spacer()
-                        Text("Checkout").foregroundColor(Color.accentColor)
-                            .font(.title)
-                            .bold()
-                        Spacer()
-                    }
+                    SubmitButtonView("Checkout")
                 }
             ).disabled(submitDisabled)
             
