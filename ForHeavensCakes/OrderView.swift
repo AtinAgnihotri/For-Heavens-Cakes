@@ -12,38 +12,42 @@ struct OrderView: View {
     
     var body: some View {
         NavigationView {
-            Form {
-                Section(header: Text("Flavors")
-                            .font(.headline)) {
-                    Picker("Cupcake Flavor", selection: $orderManager.type) {
-                        ForEach(0..<OrderManager.types.count) {
-                            Text("\(OrderManager.types[$0])")
+            VStack {
+                Form {
+                    Section(header: Text("Flavors")
+                                .font(.headline)) {
+                        Picker("Cupcake Flavor", selection: $orderManager.type) {
+                            ForEach(0..<OrderManager.types.count) {
+                                Text("\(OrderManager.types[$0])")
+                            }
+                        }
+                        .pickerStyle(InlinePickerStyle())
+                        .scaledToFit()
+                    }
+                    Section(header: Text("Number of cupcakes")
+                                .font(.headline)) {
+                        Stepper(value: $orderManager.quantity, in: 1...20) {
+                            Text("\(orderManager.quantity)")
+                                .padding()
+                                .font(.title)
                         }
                     }
-                    .pickerStyle(InlinePickerStyle())
-                    .scaledToFit()
-                }
-                Section(header: Text("Number of cupcakes")
-                            .font(.headline)) {
-                    Stepper(value: $orderManager.quantity, in: 1...20) {
-                        Text("\(orderManager.quantity)")
-                            .padding()
-                            .font(.title)
-                    }
-                }
-                Section(header: Text("Special Requests")
-                            .font(.headline)) {
-                    Toggle(isOn: $orderManager.specialRequestsEnabled.animation()) {
-                        Text("Any special requests?")
-                    }
-                    if orderManager.specialRequestsEnabled {
-                        Toggle(isOn: $orderManager.extraFrosting) {
-                            Text("Extra frosting?")
+                    Section(header: Text("Special Requests")
+                                .font(.headline)) {
+                        Toggle(isOn: $orderManager.specialRequestsEnabled.animation()) {
+                            Text("Any special requests?")
                         }
-                        Toggle(isOn: $orderManager.addSprinkles) {
-                            Text("Add sprinkles?")
+                        if orderManager.specialRequestsEnabled {
+                            Toggle(isOn: $orderManager.extraFrosting) {
+                                Text("Extra frosting?")
+                            }
+                            Toggle(isOn: $orderManager.addSprinkles) {
+                                Text("Add sprinkles?")
+                            }
                         }
                     }
+                    
+                   
                 }
                 
                 NavigationLink(
@@ -51,10 +55,15 @@ struct OrderView: View {
                     label: {
                         HStack {
                             Spacer()
-                            Text("Proceed to Delivery Details").foregroundColor(Color.accentColor)
+                            Text("Proceed to Delivery Details")
+                                .foregroundColor(Color.accentColor)
+                                .font(.title)
+                                .bold()
                             Spacer()
                         }
                     })
+                
+                Spacer()
             }.navigationBarTitle("For Heaven's Cakes")
         }
     }
