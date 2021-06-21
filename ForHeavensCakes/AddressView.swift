@@ -39,8 +39,6 @@ struct AddressView: View {
                         TextField("PIN", text: $pinCode)
                             .keyboardType(.numberPad)
                     }
-                    
-                    
                 }
                 NavigationLink (
                     destination: Text("Proceed to order"), // stub

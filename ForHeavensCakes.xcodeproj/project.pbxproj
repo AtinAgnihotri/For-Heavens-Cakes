@@ -13,6 +13,7 @@
 		852E9DC2267F861100F0E945 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 852E9DC1267F861100F0E945 /* Preview Assets.xcassets */; };
 		852E9DCA267FB41A00F0E945 /* OrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852E9DC9267FB41A00F0E945 /* OrderManager.swift */; };
 		852E9DCC267FBDB000F0E945 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852E9DCB267FBDB000F0E945 /* AddressView.swift */; };
+		85B4A4872680653600120038 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B4A4862680653600120038 /* UIApplicationExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		852E9DC3267F861100F0E945 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		852E9DC9267FB41A00F0E945 /* OrderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderManager.swift; sourceTree = "<group>"; };
 		852E9DCB267FBDB000F0E945 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
+		85B4A4862680653600120038 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		852E9DB9267F860E00F0E945 /* ForHeavensCakes */ = {
 			isa = PBXGroup;
 			children = (
+				85B4A4852680650D00120038 /* Utils */,
 				852E9DBA267F860E00F0E945 /* ForHeavensCakesApp.swift */,
 				852E9DBC267F860E00F0E945 /* OrderView.swift */,
 				852E9DBE267F861100F0E945 /* Assets.xcassets */,
@@ -73,6 +76,14 @@
 				852E9DC1267F861100F0E945 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		85B4A4852680650D00120038 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				85B4A4862680653600120038 /* UIApplicationExtensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				852E9DCA267FB41A00F0E945 /* OrderManager.swift in Sources */,
+				85B4A4872680653600120038 /* UIApplicationExtensions.swift in Sources */,
 				852E9DCC267FBDB000F0E945 /* AddressView.swift in Sources */,
 				852E9DBD267F860E00F0E945 /* OrderView.swift in Sources */,
 				852E9DBB267F860E00F0E945 /* ForHeavensCakesApp.swift in Sources */,

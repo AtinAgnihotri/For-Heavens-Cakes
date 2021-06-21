@@ -12,6 +12,7 @@ struct ForHeavensCakesApp: App {
     var body: some Scene {
         WindowGroup {
             OrderView()
+                .onAppear(perform: UIApplication.shared.addTapGestureRecognizer)
         }
     }
 }
