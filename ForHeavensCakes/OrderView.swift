@@ -55,7 +55,7 @@ struct OrderView: View {
                     label: {
                         HStack {
                             Spacer()
-                            Text("Proceed to Delivery Details")
+                            Text("Address Details")
                                 .foregroundColor(Color.accentColor)
                                 .font(.title)
                                 .bold()

@@ -13,6 +13,11 @@ class OrderManager: ObservableObject {
     @Published var type = 0
     @Published var quantity = 3
     
+    @Published var name = ""
+    @Published var streetAddress = ""
+    @Published var city = ""
+    @Published var pinCode = ""
+    
     @Published var specialRequestsEnabled = false {
         didSet {
             if specialRequestsEnabled == false {
