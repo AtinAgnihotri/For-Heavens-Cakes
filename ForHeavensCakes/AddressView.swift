@@ -36,7 +36,7 @@ struct AddressView: View {
                 }
             }
             NavigationLink (
-                destination: Text("Checkout"), // stub
+                destination: CheckoutView(),
                 label: {
                     SubmitButtonView("Checkout")
                 }
