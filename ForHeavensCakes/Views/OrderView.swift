@@ -16,7 +16,7 @@ struct OrderView: View {
                 Form {
                     Section(header: Text("Flavors")
                                 .font(.headline)) {
-                        Picker("Cupcake Flavor", selection: $orderManager.type) {
+                        Picker("Cupcake Flavor", selection: $orderManager.order.type) {
                             ForEach(0..<OrderManager.types.count) {
                                 Text("\(OrderManager.types[$0])")
                             }
@@ -26,22 +26,22 @@ struct OrderView: View {
                     }
                     Section(header: Text("Number of cupcakes")
                                 .font(.headline)) {
-                        Stepper(value: $orderManager.quantity, in: 1...20) {
-                            Text("\(orderManager.quantity)")
+                        Stepper(value: $orderManager.order.quantity, in: 1...20) {
+                            Text("\(orderManager.order.quantity)")
                                 .padding()
                                 .font(.title)
                         }
                     }
                     Section(header: Text("Special Requests")
                                 .font(.headline)) {
-                        Toggle(isOn: $orderManager.specialRequestsEnabled.animation()) {
+                        Toggle(isOn: $orderManager.order.specialRequestsEnabled.animation()) {
                             Text("Any special requests?")
                         }
-                        if orderManager.specialRequestsEnabled {
-                            Toggle(isOn: $orderManager.extraFrosting) {
+                        if orderManager.order.specialRequestsEnabled {
+                            Toggle(isOn: $orderManager.order.extraFrosting) {
                                 Text("Extra frosting?")
                             }
-                            Toggle(isOn: $orderManager.addSprinkles) {
+                            Toggle(isOn: $orderManager.order.addSprinkles) {
                                 Text("Add sprinkles?")
                             }
                         }

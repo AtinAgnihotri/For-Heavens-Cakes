@@ -11,10 +11,10 @@ struct AddressView: View {
     @ObservedObject var orderManager = OrderManager.getInstance()
     
     var submitDisabled: Bool {
-        let nameCheck = orderManager.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-        let streetCheck = orderManager.streetAddress.trimmingCharacters(in: .whitespacesAndNewlines).count < 5
-        let cityCheck = orderManager.city.trimmingCharacters(in: .whitespacesAndNewlines).count < 3
-        let pinCodeCheck = (Int(orderManager.pinCode) == nil) || (orderManager.pinCode.trimmingCharacters(in: .whitespacesAndNewlines).count != 6)
+        let nameCheck = orderManager.order.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        let streetCheck = orderManager.order.streetAddress.trimmingCharacters(in: .whitespacesAndNewlines).count < 5
+        let cityCheck = orderManager.order.city.trimmingCharacters(in: .whitespacesAndNewlines).count < 3
+        let pinCodeCheck = (Int(orderManager.order.pinCode) == nil) || (orderManager.order.pinCode.trimmingCharacters(in: .whitespacesAndNewlines).count != 6)
         return nameCheck || streetCheck || cityCheck || pinCodeCheck
     }
     
@@ -22,16 +22,16 @@ struct AddressView: View {
         VStack {
             Form {
                 Section(header: Text("Name").font(.headline)) {
-                    TextField("Name", text: $orderManager.name)
+                    TextField("Name", text: $orderManager.order.name)
                 }
                 Section(header: Text("Street Address").font(.headline)) {
-                    TextField("Street Address", text: $orderManager.streetAddress)
+                    TextField("Street Address", text: $orderManager.order.streetAddress)
                 }
                 Section(header: Text("City").font(.headline)) {
-                    TextField("City", text: $orderManager.city)
+                    TextField("City", text: $orderManager.order.city)
                 }
                 Section(header: Text("PIN Code").font(.headline)) {
-                    TextField("PIN", text: $orderManager.pinCode)
+                    TextField("PIN", text: $orderManager.order.pinCode)
                         .keyboardType(.numberPad)
                 }
             }
