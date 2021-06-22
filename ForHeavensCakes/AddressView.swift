@@ -11,10 +11,10 @@ struct AddressView: View {
     @ObservedObject var orderManager = OrderManager.getInstance()
     
     var submitDisabled: Bool {
-        let nameCheck = orderManager.name.isEmpty
-        let streetCheck = orderManager.streetAddress.count < 5
-        let cityCheck = orderManager.city.count < 3
-        let pinCodeCheck = (Int(orderManager.pinCode) == nil) || (orderManager.pinCode.count != 6)
+        let nameCheck = orderManager.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        let streetCheck = orderManager.streetAddress.trimmingCharacters(in: .whitespacesAndNewlines).count < 5
+        let cityCheck = orderManager.city.trimmingCharacters(in: .whitespacesAndNewlines).count < 3
+        let pinCodeCheck = (Int(orderManager.pinCode) == nil) || (orderManager.pinCode.trimmingCharacters(in: .whitespacesAndNewlines).count != 6)
         return nameCheck || streetCheck || cityCheck || pinCodeCheck
     }
     

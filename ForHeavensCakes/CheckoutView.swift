@@ -106,7 +106,17 @@ struct CheckoutView: View {
         }.resume()
     }
     
+    func sanitizeOrderManagerData() {
+        orderManager.name = orderManager.name.trimmingCharacters(in: .whitespacesAndNewlines)
+        orderManager.city = orderManager.city.trimmingCharacters(in: .whitespacesAndNewlines)
+        orderManager.streetAddress = orderManager.streetAddress.trimmingCharacters(in: .whitespacesAndNewlines)
+        orderManager.pinCode = orderManager.pinCode.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
     func checkoutOrder() {
+        
+        sanitizeOrderManagerData()
+        
         guard let encoded = try? JSONEncoder().encode(orderManager) else {
             let errorMsg = "Failed to encode order"
             showError(errorMsg)
