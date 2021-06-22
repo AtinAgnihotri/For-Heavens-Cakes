@@ -9,7 +9,8 @@ import SwiftUI
 
 struct CheckoutView: View {
     @ObservedObject var orderManager = OrderManager.getInstance()
-    @State private var confirmationMsg = ""
+    @State private var alertMsg = ""
+    @State private var alertTilte = ""
     @State private var showConfirmation = false
     @State private var isProcessingRequest = false
     
@@ -43,8 +44,15 @@ struct CheckoutView: View {
         }
         .navigationBarTitle("Checkout", displayMode: .inline)
         .alert(isPresented: $showConfirmation) {
-            Alert(title: Text("Thank you!"), message: Text(confirmationMsg), dismissButton: .default(Text("OK")))
+            Alert(title: Text("Thank you!"), message: Text(alertMsg), dismissButton: .default(Text("OK")))
         }
+    }
+    
+    func showAlert(title: String, message: String) {
+        alertTilte = title
+        alertMsg = message
+        showConfirmation = true
+        isProcessingRequest.toggle()
     }
     
     func showConfirmationMessage(_ order: OrderManager) {
@@ -64,9 +72,8 @@ struct CheckoutView: View {
         
         let isSpecialOrder = order.extraFrosting || order.addSprinkles
         
-        confirmationMsg = "Your order for \(quantity) \(type) cupcakes\(isSpecialOrder ? specialOrder : "") is on it's way"
-        showConfirmation = true
-        isProcessingRequest.toggle()
+        let msg = "Your order for \(quantity) \(type) cupcakes\(isSpecialOrder ? specialOrder : "") is on it's way"
+        showAlert(title: "Thank you!", message: msg)
     }
     
     func setupUrlRequest(_ url: URL, data: Data) -> URLRequest {
@@ -77,24 +84,32 @@ struct CheckoutView: View {
         return request
     }
     
+    func showError(_ error: String) {
+        print(error)
+        showAlert(title: "Error!", message: error)
+    }
+    
     func runSessionTask(_ request: URLRequest) {
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else {
-                print("No data in response: \(error?.localizedDescription ?? "Unknown error")")
+                let errorMsg = "No data in response: \(error?.localizedDescription ?? "Unknown error")"
+                showError(errorMsg)
                 return
             }
             
             if let decodedOrder = try? JSONDecoder().decode(OrderManager.self, from: data) {
                 showConfirmationMessage(decodedOrder)
             } else {
-                print("Invalid response recieved")
+                let errorMsg = "Invalid response recieved"
+                showError(errorMsg)
             }
         }.resume()
     }
     
     func checkoutOrder() {
         guard let encoded = try? JSONEncoder().encode(orderManager) else {
-            print("Failed to encode order")
+            let errorMsg = "Failed to encode order"
+            showError(errorMsg)
             return
         }
         
